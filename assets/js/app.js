@@ -227,13 +227,7 @@ var markerClusters = new L.MarkerClusterGroup({
 var colegiosLayer = L.geoJson(null);
 var colegios = L.geoJson(null, {
   pointToLayer: function (feature, latlng) {
-    return L.marker(latlng, {
-      icon: L.icon({
-        iconUrl: "assets/img/libro.png",
-        iconSize: [24, 28],
-        iconAnchor: [12, 28],
-        popupAnchor: [0, -25]
-      }),
+    
       title: feature.properties.Nombre,
       riseOnHover: true
     });
