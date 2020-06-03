@@ -219,8 +219,9 @@ var markerClusters = new L.MarkerClusterGroup({
   showCoverageOnHover: false,
   zoomToBoundsOnClick: true,
   disableClusteringAtZoom: 16,
+  animate: false,
   animateAddingMarkers: false,
-  chunkedLoading: true
+  chunkedLoading: true,
 });
 
 /* Empty layer placeholder to add to layer control for listening when to add/remove colegios to markerClusters layer */
