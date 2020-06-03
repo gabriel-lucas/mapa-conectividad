@@ -227,7 +227,6 @@ var markerClusters = new L.MarkerClusterGroup({
 var colegiosLayer = L.geoJson(null);
 var colegios = L.geoJson(null, {
   pointToLayer: function (feature, latlng) {
-    
       title: feature.properties.Nombre,
       riseOnHover: true
     });
