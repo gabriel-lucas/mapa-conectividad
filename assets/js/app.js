@@ -232,19 +232,19 @@ var colegios = L.geoJson(null, {
   },
   onEachFeature: function (feature, layer) {
     if (feature.properties) {
-      var content = "<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>Name</th><td>" + feature.properties.Nombre + "</td></tr>" + "<tr><th>Phone</th><td>" + feature.properties.TEL + "</td></tr>" + "<tr><th>Address</th><td>" + feature.properties.ADDRESS1 + "</td></tr>" + "<tr><th>Website</th><td><a class='url-break' href='" + feature.properties.URL + "' target='_blank'>" + feature.properties.URL + "</a></td></tr>" + "<table>";
+      var content = "<table class='table table-striped table-bordered table-condensed'>" + "<tr><th>Nombre</th><td>" + feature.properties.nombre + "</td></tr>" + "<tr><th>Dirección</th><td>" + feature.properties.clase_via +" "+feature.properties.nombre_via + "</td></tr>" + "<tr><th>Email</th><td>" + feature.properties.email + "</td></tr>" + "<tr><th>Teléfono</th><td>" + feature.properties.telefono + "</td></tr>" + "<tr><th>Web</th><td><a class='url-break' href='" + feature.properties.url + "' target='_blank'>" + feature.properties.URL + "</a></td></tr>" + "<table>";
       layer.on({
         click: function (e) {
-          $("#feature-title").html(feature.properties.Nombre);
+          $("#feature-title").html(feature.properties.nombre);
           $("#feature-info").html(content);
           $("#featureModal").modal("show");
           highlight.clearLayers().addLayer(L.circleMarker([feature.geometry.coordinates[1], feature.geometry.coordinates[0]], highlightStyle));
         }
       });
-      $("#feature-list tbody").append('<tr class="feature-row" id="' + L.stamp(layer) + '" lat="' + layer.getLatLng().lat + '" lng="' + layer.getLatLng().lng + '"><td style="vertical-align: middle;"><img width="16" height="18" src="assets/img/libro.png"></td><td class="feature-name">' + layer.feature.properties.Nombre + '</td><td style="vertical-align: middle;"><i class="fa fa-chevron-right pull-right"></i></td></tr>');
+      $("#feature-list tbody").append('<tr class="feature-row" id="' + L.stamp(layer) + '" lat="' + layer.getLatLng().lat + '" lng="' + layer.getLatLng().lng + '"><td style="vertical-align: middle;"><img width="16" height="18" src="assets/img/libro.png"></td><td class="feature-name">' + layer.feature.properties.nombre + '</td><td style="vertical-align: middle;"><i class="fa fa-chevron-right pull-right"></i></td></tr>');
       colegiosSearch.push({
-        name: layer.feature.properties.Nombre,
-        address: layer.feature.properties.Domicilio,
+        name: layer.feature.properties.nombre,
+        address: layer.feature.properties.nombre_via,
         source: "Colegios",
         id: L.stamp(layer),
         lat: layer.feature.geometry.coordinates[1],
