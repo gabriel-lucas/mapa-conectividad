@@ -253,7 +253,7 @@ var colegios = L.geoJson(null, {
     }
   }
 });
-$.getJSON("data/colegios.geojson", function (data) {
+$.getJSON("data/madrid.geojson", function (data) {
   colegios.addData(data);
   map.addLayer(colegiosLayer);
 });
